@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/-Final-report-crawler-.iml" filepath="$PROJECT_DIR$/.idea/-Final-report-crawler-.iml" />
+      <module fileurl="file://$PROJECT_DIR$/final work/final work.iml" filepath="$PROJECT_DIR$/final work/final work.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven jsoup/maven jsoup.iml" filepath="$PROJECT_DIR$/maven jsoup/maven jsoup.iml" />
     </modules>
   </component>
 </project>
