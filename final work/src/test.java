@@ -1,7 +1,9 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
+import javax.lang.model.util.ElementScanner6;
 import java.io.IOException;
 
 public class test {
@@ -14,8 +16,12 @@ public class test {
         System.out.println("-------------------------------------------");
         Element title = doc.select("#fullColumn h1 ").first(); //此部分的標題
         System.out.println(title.text());
-        Element table = doc.select("table").last(); //所有貨幣的資料
-        System.out.print(table.text());
-
+        Element table = doc.select("table").last();//所有貨幣的資料
+        System.out.println(table.text());
+      //  Element tbody = table.select("tbody").first();
+      //  Elements tr = tbody.select("tr").first();
+      //  for (Element items : tr){
+      //      System.out.println(items.text());
+        }
     }
-}
+
