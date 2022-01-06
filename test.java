@@ -29,21 +29,28 @@ public class test {
 
 
         System.out.println("-----------------------------------------------------------------------------");
-        Element table = doc.select("thead").last(); //所有貨幣的資料表
-        System.out.print(table.text());
+       Element table = doc.select("thead").last(); //所有貨幣的資料表
+       System.out.print(table.text());
+
         System.out.println("\n" + "-----------------------------------------------------------------------------");// \n是換行
+        ////////////////////////// 給他們一點自己的空間
+        for (int i=0 ; i<10 ; i++) {
+            String table1 = doc.getElementsByClass("left noWrap elp symb js-currency-symbol").get(i).text();
+            String table2 = doc.getElementsByClass("left bold elp name cryptoName first js-currency-name").get(i).text();
+            String table3 = doc.getElementsByClass("price js-currency-price").get(i).text();
+            String table4 = doc.getElementsByClass("js-market-cap").get(i).text();
+            String table5 = doc.getElementsByClass("js-24h-volume").get(i).text();
+            String table6 = doc.getElementsByClass("js-total-vol").get(i).text();
+            //String table7 = doc.getElementsByClass("js-currency-change-24h pid-1057391-pcp redFont").get(7).text();
+            //String table7 = doc.select("#fullColumn > div:nth-child(9) > table > tbody > tr:nth-child(1) > td.js-currency-change-24h.pid-1057391-pcp.redFont").get(0).text();
+            String table8 = doc.getElementsByClass("js-currency-change-7d redFont").get(i).text();
 
-        //Element table2 = doc.select("tbody").last(); //所有貨幣的資料 //全部排成一行 不能換行
-        //System.out.print(table2.text());
+            System.out.println((i+1)+"."+" 名稱: " + table2 + " 代號: " + table1 + " 價格 (USD): " + table3 + " 市值: " + table4 + "\n    成交量(24小時): " + table5 + " 市場份額: " + table6 + " 升跌率 (24小時): "  + " 升跌率(7日): " + table8+ "\n");
+            // table 7 一直錯誤 我真的沒辦法 煩死人了
+        }
 
-       Elements items = doc.getElementsByClass("tr class");
-       for (Element item : items) {
-           String a  = item.getElementsByClass("tr").get(0).getElementsByTag("rank icon").get(0).text();
-           String b  = item.getElementsByClass("tr").get(0).getElementsByTag("left noWrap elp symb js-currency-symbol").get(0).text();
-           System.out.println(a);
-           System.out.println(b);
-           //36-40 不知道這樣打是不是正確的 也不知道為甚麼String後面只能接一個字母 不能是單字 要瘋掉了拉乾 而且顯示不出來吼
-       }
+
+
 
     }
     }
