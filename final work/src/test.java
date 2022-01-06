@@ -46,7 +46,7 @@ public class test {
             String table8 = doc.getElementsByClass("js-currency-change-7d redFont").get(i).text();
 
             System.out.println((i+1)+"."+" 名稱: " + table2 + " 代號: " + table1 + " 價格 (USD): " + table3 + " 市值: " + table4 + "\n    成交量(24小時): " + table5 + " 市場份額: " + table6 + " 升跌率 (24小時): "  + " 升跌率(7日): " + table8+ "\n");
-            // table 7 一直錯誤 我真的沒辦法 煩死人了
+            // table 7 一直錯誤 我真的沒辦法 煩死人了!
         }
 
 
