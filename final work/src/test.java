@@ -27,10 +27,9 @@ public class test {
         //Element table = doc.select("table").last(); //所有貨幣的資料
         //System.out.print(table.text());
 
-
         System.out.println("-----------------------------------------------------------------------------");
-       Element table = doc.select("thead").last(); //所有貨幣的資料表
-       System.out.print(table.text());
+        Element table = doc.select("thead").last(); //所有貨幣的資料表
+        System.out.print(table.text());
 
         System.out.println("\n" + "-----------------------------------------------------------------------------");// \n是換行
         ////////////////////////// 給他們一點自己的空間
@@ -48,10 +47,6 @@ public class test {
             System.out.println((i+1)+"."+" 名稱: " + table2 + " 代號: " + table1 + " 價格 (USD): " + table3 + " 市值: " + table4 + "\n    成交量(24小時): " + table5 + " 市場份額: " + table6 + " 升跌率 (24小時): "  + " 升跌率(7日): " + table8+ "\n");
             // table 7 一直錯誤 我真的沒辦法 煩死人了!
         }
-
-
-
-
     }
-    }
+}
 
