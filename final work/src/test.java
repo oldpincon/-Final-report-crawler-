@@ -1,13 +1,15 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-//import org.jsoup.select.Elements;
+import org.jsoup.select.Elements;
 //import javax.lang.model.util.ElementScanner6;
 import java.io.IOException;
 
 public class test {
     public static void main(String[] args) throws IOException {
         Document doc = Jsoup.connect("https://hk.investing.com/crypto/currencies").get(); //虛擬貨比的網站
+        Document doc1 = Jsoup.connect("https://hk.investing.com/crypto/").get();
+
         System.out.println("漲跌劇烈提示器");
         /////// 打咚咚
 
@@ -35,10 +37,17 @@ public class test {
                 String table5 = doc.getElementsByClass("js-market-cap").get(i).text();
                 String table6 = doc.getElementsByClass("js-24h-volume").get(i).text();
                 String table7 = doc.getElementsByClass("js-total-vol").get(i).text();
-                String table8 = doc.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").get(0).text();
-                String table9 = doc.getElementsByClass("js-currency-change-7d redFont").get(i).text();
 
-                System.out.println((i + 1) + "." + "名稱: " + table2 + " 代號: " + table3 + " 價格 (USD): " + table4 + " 市值: " + table5 + "\n   成交量(24小時): " + table6 + " 市場份額: " + table7 + " 升跌率 (24小時): " + table8 + " 升跌率(7日): " + table9 + "\n");
+                Elements updo =doc1.select("#fullColumn > div:nth-child(9) > table > tbody > tr:nth-child(" + i + ")");
+                Element  table10 = updo.get(i) ;
+                String table11 = table10.attr(i) ;
+                 //table10.attr(i) ;
+
+
+               // String table8 = doc1.getElementsByClass("js-currency-change-24h pid-1057391-pcp greenFont").get(0).text();
+                String table9 = doc.getElementsByClass("js-currency-change-7d redFont").get(i).text();
+                //System.out.println(table10.attr(i));
+                System.out.println((i + 1) + "." + "名稱: " + table2 + " 代號: " + table3 + " 價格 (USD): " + table4 + " 市值: " + table5 + "\n   成交量(24小時): " + table6 + " 市場份額: " + table7 + " 升跌率 (24小時): " +table11 + " 升跌率(7日): " + table9 + "\n");
 
             }
         }
