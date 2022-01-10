@@ -1,3 +1,4 @@
+import com.sun.source.tree.ContinueTree;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,6 +14,24 @@ public class test {
 
             System.out.println("-------------------------------------------");
             System.out.println("今日警示 :");//寫不出來== 爬下來的是text檔，目前轉不成integer @_@
+         //   for (int i = 1; i <= 10; i++) {
+         //       if(doc.select("#fullColumn > div:nth-child(14) > table > tbody > tr:nth-child("+i+") > td.js-currency-change-24h.greenFont.pid-").size() != 0){
+         //           String tfc = doc.getElementsByClass("js-currency-change-24h greenFont pid-" ).get(0).text();
+         //           tfc = tfc.replaceAll("[^\\d]","");
+         //           double tfcU = Double.parseDouble(tfc);
+         //           if (tfcU > 10)
+         //           System.out.println(tfcU);
+         //           break;
+         //       }
+         //       else {
+         //           String tfc = doc.getElementsByClass("js-currency-change-24h redFont pid-" ).get(0).text();
+         //           tfc = tfc.replaceAll("[^\\d]","");
+         //           double tfcD = Double.parseDouble(tfc);
+         //           if (tfcD < -10)
+         //           System.out.println(tfcD);
+         //           continue;
+         //       }
+         //   }
 
 
             System.out.println("-------------------------------------------");
@@ -31,15 +50,15 @@ public class test {
 
                 if(doc.select("#fullColumn > div:nth-child(14) > table > tbody > tr:nth-child("+i+") > td.js-currency-change-24h.greenFont.pid-"+ table10.attr("i") +"-pcp").size() != 0){
                     //如果24小時的升率字串數字大小不等於0 則顯示
-                    String tfcU = doc.getElementsByClass("js-currency-change-24h greenFont pid-" + table10.attr("i") +"-pcp").get(0).text();
-                    System.out.println(i  + "." + "名稱: " + table2 + " 代號: " + table3 + " 價格 (USD): " + table4 + " 市值: " + table5 + "\n   成交量(24小時): " + table6 + "   市場份額: " + table7 + " 升跌率 (24小時): " +tfcU + " 升跌率(7日): " + table9 + "\n");
-                    //tfcU = 24hrㄉ升率，tf = twenty-four 、 c = change 、 U = up
+                    String tfc = doc.getElementsByClass("js-currency-change-24h greenFont pid-" + table10.attr("i") +"-pcp").get(0).text();
+                    System.out.println(i  + "." + "名稱: " + table2 + " 代號: " + table3 + " 價格 (USD): " + table4 + " 市值: " + table5 + "\n   成交量(24小時): " + table6 + "   市場份額: " + table7 + " 升跌率 (24小時): " +tfc + " 升跌率(7日): " + table9 + "\n");
+                    //tfcU = 24hrㄉ升率，tf = twenty-four 、 c = change
                 }
                 else {
                     //如果24小時的跌率字串數字大小不等於0 則顯示
-                    String tfcD = doc.getElementsByClass("js-currency-change-24h redFont pid-" + table10.attr("i") +"-pcp").get(0).text();
-                    System.out.println(i + "." + "名稱: " + table2 + " 代號: " + table3 + " 價格 (USD): " + table4 + " 市值: " + table5 + "\n  成交量(24小時): " + table6 + "     市場份額: " + table7 + " 升跌率 (24小時): " +tfcD + " 升跌率(7日): " + table9 + "\n");
-                    //tfcD = 24hrㄉ升率，tf = twenty-four 、 c = change 、 D = down
+                    String tfc = doc.getElementsByClass("js-currency-change-24h redFont pid-" + table10.attr("i") +"-pcp").get(0).text();
+                    System.out.println(i + "." + "名稱: " + table2 + " 代號: " + table3 + " 價格 (USD): " + table4 + " 市值: " + table5 + "\n  成交量(24小時): " + table6 + "     市場份額: " + table7 + " 升跌率 (24小時): " +tfc + " 升跌率(7日): " + table9 + "\n");
+                    //tfcD = 24hrㄉ升率，tf = twenty-four 、 c = change
                 }
                 j++;
             }
