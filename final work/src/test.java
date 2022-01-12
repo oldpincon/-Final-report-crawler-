@@ -43,6 +43,7 @@ public class test {
 //
 //                }
 //            }
+            //呂緯屏製造
             for (Element mainTr : mainTrs){
                 Elements tds = mainTr.select("td");
                 for (Element td : tds){
