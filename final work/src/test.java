@@ -4,6 +4,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import javax.lang.model.util.ElementScanner6;
+import java.util.Scanner;
+
 public class test {
     public static void main(String[] args) {
         try {
@@ -56,6 +59,27 @@ public class test {
                 }
             }
             System.out.println("\n");
+            //呂緯屏，貨幣查詢
+            Scanner cryptoInput = new Scanner(System.in);
+            System.out.printf("輸入要查詢的貨幣：");
+            String cryptoName = cryptoInput.nextLine();
+            Elements allCrypto = doc.select(".genTbl.openTbl.js-all-crypto-table.mostActiveStockTbl.crossRatesTbl.allCryptoTlb.wideTbl.elpTbl.elp15 tbody tr");
+            Elements cryptoTitle = doc.select(".genTbl.openTbl.js-all-crypto-table.mostActiveStockTbl.crossRatesTbl.allCryptoTlb.wideTbl.elpTbl.elp15 thead th");
+            for (Element title : cryptoTitle){
+                String outputTitle = title.text();
+                System.out.printf("%-10s" , outputTitle);
+            }
+            for (Element crypto : allCrypto){
+                if (crypto.text().contains(cryptoName) ){
+                    System.out.println("");
+                    Elements ths = crypto.select("td");
+                    for (Element th : ths){
+                        String outputCrypto = th.text();
+                        System.out.printf("%-11s" , outputCrypto);
+                    }
+
+                }
+            }
         }
         catch (Exception e){
             System.out.println("error" + e);
